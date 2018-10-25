@@ -14,27 +14,27 @@ stages {
     }
     stage('git clone') {
         steps {
-            sh 'sudo rm -r *;sudo git clone https://github.com/aleti-pavan/jenkins.git'
+            sh 'sudo rm -r *;sudo git clone https://github.com/Anjan-Kumar/Demo.git'
         }
     }
     stage('tfsvars create'){
         steps {
-            sh 'sudo cp /home/ubuntu/lambda/vars.tf ./jenkins/'
+            sh 'sudo cp /home/ubuntu/lambda/vars.tf ./Demo/'
         }
     }
     stage('terraform init') {
         steps {
-            sh 'sudo /home/ubuntu/lambda/terraform init ./jenkins'
+            sh 'sudo /home/ubuntu/lambda/terraform init ./Demo'
         }
     }
     stage('terraform plan') {
         steps {
-            sh 'ls ./jenkins; sudo /home/ubuntu/lambda/terraform plan -target=resource.hello-world -var-file hello-world-poc.tfvars  -out hello-world-poc.tfplan ./jenkins'
+            sh 'ls ./Demo; sudo /home/ubuntu/lambda/terraform plan -target=resource.hello-world -var-file hello-world-poc.tfvars  -out hello-world-poc.tfplan ./Demo'
         }
     }
 	stage('terraform apply') {
         steps {
-            sh 'sudo /home/ubuntu/lambda/terraform apply hello-world-poc.tfplan ./jenkins'
+            sh 'sudo /home/ubuntu/lambda/terraform apply hello-world-poc.tfplan ./Demo'
         }
     }
     stage('terraform ended') {
