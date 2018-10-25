@@ -14,7 +14,7 @@ stages {
     }
     stage('git clone') {
         steps {
-            sh 'sudo rm -r *;sudo git clone https://github.com/Anjan-Kumar/Demo.git'
+            sh 'rm -r *;sudo git clone https://github.com/Anjan-Kumar/Demo.git'
         }
     }
     stage('tfsvars create'){

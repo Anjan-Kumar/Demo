@@ -2,11 +2,13 @@
 #Sample Lambda Function
 ################################################################
 provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
   region = "us-east-2"
 }
 
 resource "aws_iam_role" "Demo" {
-  name = "Demo"
+  name = "Demo-new"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -25,7 +27,7 @@ EOF
 }
 
 resource "aws_lambda_function" "demo_lambda" {
-    function_name = "hello-world"
+    function_name = "hello-world-new"
     handler = "index.handler"
     runtime = "nodejs6.10"
     filename = "function.zip"
