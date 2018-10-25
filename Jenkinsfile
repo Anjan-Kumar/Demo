@@ -29,12 +29,12 @@ stages {
     }
     stage('terraform plan') {
         steps {
-            sh 'ls ./Demo; sudo /home/ubuntu/lambda/terraform plan -target=resource.hello-world -var-file hello-world-poc.tfvars  -out hello-world-poc.tfplan ./Demo'
+            sh 'ls ./Demo; sudo /home/ubuntu/lambda/terraform plan -target=aws_lambda_function.demo_lambda -var-file terraform.tfvars  -out demo_lambda.tfplan ./Demo'
         }
     }
 	stage('terraform apply') {
         steps {
-            sh 'sudo /home/ubuntu/lambda/terraform apply hello-world-poc.tfplan ./Demo'
+            sh 'sudo /home/ubuntu/lambda/terraform apply demo_lambda.tfplan ./Demo'
         }
     }
     stage('terraform ended') {
