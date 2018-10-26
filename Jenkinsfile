@@ -25,7 +25,7 @@ stages {
 
     // You can override tools, environment and agent on each stage if you want.
     //Giving the code to perform terraform action 
-    /Providing AWS credentials in pipeline to communicate with AWS
+    //Providing AWS credentials in pipeline to communicate with AWS
     stage('Terraform Deployment') {
         steps {
             withCredentials([
