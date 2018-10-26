@@ -28,7 +28,7 @@ stages {
             }
             sh '''
                 terraform init
-                terraform apply -auto-approve -var access_key=${AWS_KEY} -var secret_key=${AWS_SECRET}
+                terraform apply -auto-approve -var aws_access_key=${AWS_KEY} -var aws_secret_key=${AWS_SECRET}
             '''
         }
     }
