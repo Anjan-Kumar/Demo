@@ -8,7 +8,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "Demo" {
-  name = "Demo-new"
+  name = "Demo-new-2"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -27,7 +27,7 @@ EOF
 }
 
 resource "aws_lambda_function" "demo_lambda" {
-    function_name = "hello-world-new"
+    function_name = "hello-world-new-2"
     handler = "index.handler"
     runtime = "nodejs6.10"
     filename = "function.zip"
