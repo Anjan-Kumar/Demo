@@ -28,8 +28,7 @@ stages {
             }
             sh '''
                 terraform init
-                terraform plan -target=aws_lambda_function.demo_lambda -out demo_lambda.tfplan
-                terraform apply demo_lambda.tfplan
+                terraform apply -auto-approve -var access_key=${AWS_KEY} -var secret_key=${AWS_SECRET}
             '''
         }
     }
