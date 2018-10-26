@@ -24,12 +24,11 @@ stages {
             withCredentials([
                 usernamePassword(credentialsId: 'Anjan-AWS', passwordVariable: 'AWS_SECRET', usernameVariable: 'AWS_KEY'),
             ]) {
-
+                sh '''
+                    terraform init
+                    terraform apply -auto-approve -var aws_access_key=${AWS_KEY} -var aws_secret_key=${AWS_SECRET}
+                '''
             }
-            sh '''
-                terraform init
-                terraform apply -auto-approve -var aws_access_key=${AWS_KEY} -var aws_secret_key=${AWS_SECRET}
-            '''
         }
     }
     stage('Deployment Done') {
