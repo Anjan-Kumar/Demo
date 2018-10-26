@@ -20,7 +20,7 @@ stages {
     }
     stage('Terraform Plan') {
         steps {
-            sh 'terraform plan -target=aws_lambda_function.demo_lambda -var-file terraform.tfvars  -out demo_lambda.tfplan'
+            sh 'terraform plan -target=aws_lambda_function.demo_lambda -var-file terraform.tfvars -out demo_lambda.tfplan'
         }
     }
         stage('Terraform Apply') {
