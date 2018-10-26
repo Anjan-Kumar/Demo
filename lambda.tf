@@ -9,7 +9,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "Demo" {
-  name = "Pipeline-Demo-Final"
+  name = "Pipeline-Demo-Final1"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -28,7 +28,7 @@ EOF
 }
 
 resource "aws_lambda_function" "demo_lambda" {
-    function_name = "basic-pipeline-hello-world"
+    function_name = "basic-pipeline-hello-world1"
     handler = "index.handler"
     runtime = "nodejs6.10"
     filename = "function.zip"
